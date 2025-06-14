@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/backend_tecaj_java.iml" filepath="$PROJECT_DIR$/backend_tecaj_java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/checkArmstrong/checkArmstrong.iml" filepath="$PROJECT_DIR$/checkArmstrong/checkArmstrong.iml" />
       <module fileurl="file://$PROJECT_DIR$/introduction/introduction.iml" filepath="$PROJECT_DIR$/introduction/introduction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/isArmstrong/isArmstrong.iml" filepath="$PROJECT_DIR$/isArmstrong/isArmstrong.iml" />
       <module fileurl="file://$PROJECT_DIR$/sumRange/sumRange.iml" filepath="$PROJECT_DIR$/sumRange/sumRange.iml" />
     </modules>
   </component>
