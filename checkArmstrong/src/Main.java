@@ -18,7 +18,7 @@ public class Main {
     }
 
     private static void checkIfArmstrong(Scanner scan) {
-        //TODO handle proper input
+        //TODO handle proper input - need to use try and catch with InputMismatchException
         System.out.println("Welcome!" + System.lineSeparator() + "Enter a number to check whether it's an Armstrong number or not:");
         int number = scan.nextInt();
         int numberForCalculation = number;
