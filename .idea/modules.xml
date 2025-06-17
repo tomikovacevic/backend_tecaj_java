@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Vjezba03/Vjezba03.iml" filepath="$PROJECT_DIR$/Vjezba03/Vjezba03.iml" />
       <module fileurl="file://$PROJECT_DIR$/arithmeticOperators/arithmeticOperators.iml" filepath="$PROJECT_DIR$/arithmeticOperators/arithmeticOperators.iml" />
       <module fileurl="file://$PROJECT_DIR$/backend_tecaj_java.iml" filepath="$PROJECT_DIR$/backend_tecaj_java.iml" />
       <module fileurl="file://$PROJECT_DIR$/checkArmstrong/checkArmstrong.iml" filepath="$PROJECT_DIR$/checkArmstrong/checkArmstrong.iml" />
       <module fileurl="file://$PROJECT_DIR$/checkOIB - zadatak02/checkOIB - zadatak02.iml" filepath="$PROJECT_DIR$/checkOIB - zadatak02/checkOIB - zadatak02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/countingMoneyChange/countingMoneyChange.iml" filepath="$PROJECT_DIR$/countingMoneyChange/countingMoneyChange.iml" />
       <module fileurl="file://$PROJECT_DIR$/introduction/introduction.iml" filepath="$PROJECT_DIR$/introduction/introduction.iml" />
       <module fileurl="file://$PROJECT_DIR$/isArmstrong - zadatak01/isArmstrong - zadatak01.iml" filepath="$PROJECT_DIR$/isArmstrong - zadatak01/isArmstrong - zadatak01.iml" />
       <module fileurl="file://$PROJECT_DIR$/sumRange/sumRange.iml" filepath="$PROJECT_DIR$/sumRange/sumRange.iml" />
