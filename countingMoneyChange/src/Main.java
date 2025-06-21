@@ -3,9 +3,9 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        System.out.println("Upišite iznos koji vraćate kupcu:");
-        double iznos = 0;
-        double[] kusur = {
+        System.out.println("Write the amount of money you're returning to the customer:");
+        double amount = scan.nextDouble();
+        double[] change = {
                 500,
                 200,
                 100,
@@ -22,13 +22,13 @@ public class Main {
                 0.02,
                 0.01
         };
-        for (int i = 0; i < kusur.length; i++) {
+        for (double i : change) {
             int counter = 0;
-            double umanjitelj = kusur[0];
-            while (iznos < umanjitelj) {
-                iznos -= umanjitelj;
+            while (amount >= i) {
                 counter++;
+                amount -= i;
             }
+            System.out.println(counter + "*" + i);
         }
     }
 }
