@@ -1,7 +1,9 @@
 public class Krug extends GeometrijskiLik {
     private double radijus;
 
-    public
+    public Krug(double radijus) {
+        this.radijus = radijus;
+    }
 
     @Override
     public String getNaziv() {

@@ -1,9 +1,9 @@
 public class Trokut extends GeometrijskiLik {
-    private float a;
-    private float b;
-    private float c;
+    private double a;
+    private double b;
+    private double c;
 
-    public Trokut(float a, float b, float c) {
+    public Trokut(double a, double b, double c) {
         this.a = a;
         this.b = b;
         this.c = c;
