@@ -1,7 +1,5 @@
 public class Trokut extends GeometrijskiLik {
-    private double a;
-    private double b;
-    private double c;
+    private final double a, b, c;
 
     public Trokut(double a, double b, double c) {
         this.a = a;
@@ -16,7 +14,8 @@ public class Trokut extends GeometrijskiLik {
 
     @Override
     public double getPovrsina() {
-        return 0.25f * Math.sqrt((a + b + c) * (-a + b + c) * (a - b + c) * (a + b - c));
+        double s = (a + b + c) / 2;
+        return Math.sqrt(s * (s - a) * (s - b) * (s - c));
     }
 
     @Override

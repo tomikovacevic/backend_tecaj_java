@@ -1,7 +1,9 @@
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Ucilica {
-    private ArrayList<GeometrijskiLik> geometrijskiLikovi;
+    private final ArrayList<GeometrijskiLik> geometrijskiLikovi;
+    DecimalFormat df = new DecimalFormat("#.##");
 
     public Ucilica() {
         this.geometrijskiLikovi = new ArrayList<>();
@@ -12,7 +14,6 @@ public class Ucilica {
     }
 
     public void sort() {
-
     }
 
     public String get() {
@@ -20,12 +21,10 @@ public class Ucilica {
 
         for (GeometrijskiLik lik : geometrijskiLikovi) {
             sb.append(lik.getNaziv())
-                    .append(" ")
-                    .append("Površina: ")
-                    .append(lik.getPovrsina())
-                    .append("Opseg: ")
-                    .append(" ")
-                    .append(lik.getOpseg())
+                    .append(", Površina iznosi: ")
+                    .append(df.format(lik.getPovrsina()))
+                    .append(" Opseg iznosi: ")
+                    .append(df.format(lik.getOpseg()))
                     .append("\n");
         }
 

@@ -1,6 +1,5 @@
 public class Pravokutnik extends GeometrijskiLik {
-    private double a;
-    private double b;
+    private final double a, b;
 
     public Pravokutnik(double a, double b) {
         this.a = a;
@@ -19,6 +18,6 @@ public class Pravokutnik extends GeometrijskiLik {
 
     @Override
     public double getOpseg() {
-        return 2 * a + 2 * b;
+        return (2 * (a + b));
     }
 }

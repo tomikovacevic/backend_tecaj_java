@@ -4,13 +4,14 @@ public class Main {
     public static void main(String[] args) {
         Ucilica ucilica = new Ucilica();
         Scanner scanner = new Scanner(System.in);
-        String nastavak = "";
-        do {
-            System.out.println("Unesi geometrijski oblik");
-            String input = scanner.nextLine();
+        String nastavak;
+
+        while (true) {
+            System.out.println("Unesite geometrijski oblik");
+            String input = scanner.nextLine().toLowerCase();
 
             switch (input) {
-                case "Krug":
+                case "krug":
                     System.out.println("Unesite radijus:");
                     double radijus = scanner.nextDouble();
                     scanner.nextLine();
@@ -18,29 +19,29 @@ public class Main {
                     ucilica.add(krug);
                     break;
 
-                case "Trokut":
+                case "trokut":
                     System.out.println("Unesite stranicu A:");
-                    double stranicaA = scanner.nextDouble();
+                    double trokutA = scanner.nextDouble();
                     scanner.nextLine();
                     System.out.println("Unesite stranicu B:");
-                    double stranicaB = scanner.nextDouble();
+                    double trokutB = scanner.nextDouble();
                     scanner.nextLine();
                     System.out.println("Unesite stranicu C:");
-                    double stranicaC = scanner.nextDouble();
+                    double trokutC = scanner.nextDouble();
                     scanner.nextLine();
-                    Trokut trokut = new Trokut(stranicaA, stranicaB, stranicaC);
+                    Trokut trokut = new Trokut(trokutA, trokutB, trokutC);
                     ucilica.add(trokut);
                     break;
 
-                case "Pravokutnik":
+                case "pravokutnik":
                     System.out.println("Unesite stranicu A:");
-                    double a = scanner.nextDouble();
+                    double pravokutnikA = scanner.nextDouble();
                     scanner.nextLine();
                     System.out.println("Unesite stranicu B:");
-                    double b = scanner.nextDouble();
+                    double pravokutnikB = scanner.nextDouble();
                     scanner.nextLine();
-                    Pravokutnik p = new Pravokutnik(a, b);
-                    ucilica.add(p);
+                    Pravokutnik pravokutnik = new Pravokutnik(pravokutnikA, pravokutnikB);
+                    ucilica.add(pravokutnik);
                     break;
 
                 default:
@@ -48,17 +49,18 @@ public class Main {
                     continue;
             }
 
-            System.out.println("Da li želite ispis geometrijskih likova? (Y/n)");
+            System.out.println("Da li želite ispis geometrijskih likova? (y/n)");
             String ispis = scanner.nextLine();
 
             if (!ispis.equalsIgnoreCase("n")) {
                 System.out.println(ucilica.get());
             }
 
-            System.out.println("Da li želite nastaviti? (Y/n)");
+            System.out.println("Da li želite nastaviti? (y/n)");
             nastavak = scanner.nextLine();
-
-        } while (!nastavak.equalsIgnoreCase("n"));
-        // Trokut, Pravokutnik, Krug
+            if (nastavak.equalsIgnoreCase("n")) {
+                return;
+            }
+        }
     }
 }

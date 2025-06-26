@@ -1,5 +1,5 @@
 public class Krug extends GeometrijskiLik {
-    private double radijus;
+    private final double radijus;
 
     public Krug(double radijus) {
         this.radijus = radijus;
@@ -12,7 +12,7 @@ public class Krug extends GeometrijskiLik {
 
     @Override
     public double getPovrsina() {
-        return Math.PI * (radijus * radijus);
+        return Math.pow(radijus, 2) * Math.PI;
     }
 
     @Override
