@@ -4,7 +4,6 @@ public class Main {
     public static void main(String[] args) {
         Ucilica ucilica = new Ucilica();
         Scanner scanner = new Scanner(System.in);
-        String nastavak;
 
         while (true) {
             System.out.println("Unesite geometrijski oblik:");
@@ -64,7 +63,7 @@ public class Main {
             }
 
             System.out.println("Da li želite nastaviti? (y/n)");
-            nastavak = scanner.nextLine();
+            String nastavak = scanner.nextLine();
 
             while (!nastavak.equalsIgnoreCase("y") && !nastavak.equalsIgnoreCase("n")) {
                 System.out.println("Pogrešan unos, molim unesite \"y\" za nastavak ili \"n\" za zaustavljanje aplikacije:");
