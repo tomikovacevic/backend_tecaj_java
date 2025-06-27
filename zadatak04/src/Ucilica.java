@@ -1,5 +1,7 @@
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class Ucilica {
     private final ArrayList<GeometrijskiLik> geometrijskiLikovi;
@@ -14,6 +16,7 @@ public class Ucilica {
     }
 
     public void sort() {
+        Collections.sort(geometrijskiLikovi);
     }
 
     public String get() {

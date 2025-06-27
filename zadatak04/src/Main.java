@@ -7,7 +7,7 @@ public class Main {
         String nastavak;
 
         while (true) {
-            System.out.println("Unesite geometrijski oblik");
+            System.out.println("Unesite geometrijski oblik:");
             String input = scanner.nextLine().toLowerCase();
 
             switch (input) {
@@ -49,8 +49,15 @@ public class Main {
                     continue;
             }
 
+            ucilica.sort();
+
             System.out.println("Da li želite ispis geometrijskih likova? (y/n)");
             String ispis = scanner.nextLine();
+
+            while (!ispis.equalsIgnoreCase("y") && !ispis.equalsIgnoreCase("n")) {
+                System.out.println("Pogrešan unos, molim unesite \"y\" ako želite ispis ili \"n\" ako ne želite:");
+                ispis = scanner.nextLine();
+            }
 
             if (!ispis.equalsIgnoreCase("n")) {
                 System.out.println(ucilica.get());
@@ -58,6 +65,12 @@ public class Main {
 
             System.out.println("Da li želite nastaviti? (y/n)");
             nastavak = scanner.nextLine();
+
+            while (!nastavak.equalsIgnoreCase("y") && !nastavak.equalsIgnoreCase("n")) {
+                System.out.println("Pogrešan unos, molim unesite \"y\" za nastavak ili \"n\" za zaustavljanje aplikacije:");
+                nastavak = scanner.nextLine();
+            }
+
             if (nastavak.equalsIgnoreCase("n")) {
                 return;
             }
