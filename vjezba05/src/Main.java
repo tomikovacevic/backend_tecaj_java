@@ -4,24 +4,35 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
         while (true) {
-            try {
-                System.out.println("Unesite neki broj:");
-                int input = sc.nextInt();
-                sc.nextLine();
-                if (input <= 0) {
-                    throw new NotPositiveNumberException();
+            int input;
+            boolean firstTry = true;
+
+            while (true) {
+                if (firstTry) {
+                    System.out.println("Unesite neki broj:");
                 }
 
-                System.out.println(getFaktorijel(input));
-            } catch (InputMismatchException e) {
-                System.out.println("Unijeli ste neispravni tip, molimo unesite broj:");
-                sc.nextLine();
-            } catch (NotPositiveNumberException e) {
-                String message = e.getMessage();
-                System.out.println(message);
-                sc.nextLine();
+                try {
+                    input = sc.nextInt();
+                    sc.nextLine();
+
+                    if (input <= 0) {
+                        throw new NotPositiveNumberException();
+                    }
+                    break;
+                } catch (InputMismatchException e) {
+                    System.out.println("Unijeli ste neispravni tip, molimo unesite broj:");
+                    sc.nextLine();
+                    firstTry = false;
+                } catch (NotPositiveNumberException e) {
+                    System.out.println(e.getMessage());
+                    firstTry = false;
+                }
             }
+
+            System.out.println("Faktorijel broja " + input + " je " + getFaktorijel(input));
 
             System.out.println("Želite li nastaviti? (y/n)");
             String nastavak = sc.nextLine();
