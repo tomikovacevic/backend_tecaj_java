@@ -48,7 +48,7 @@ public class Main {
             if (input.isEmpty()) {
                 System.out.println("Input can't be empty, please enter a number:");
                 continue;
-            }
+            } //replace try catch with regular if conditions
             try {
                 return Integer.parseInt(input);
             } catch (NumberFormatException err) {
