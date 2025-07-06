@@ -6,8 +6,8 @@ public class Ucilica {
     private final ArrayList<GeometrijskiLik> geometrijskiLikovi;
     DecimalFormat df = new DecimalFormat("#.##");
 
-    public Ucilica() {
-        this.geometrijskiLikovi = new ArrayList<>();
+    public Ucilica(ArrayList<GeometrijskiLik> geometrijskiLikovi) {
+        this.geometrijskiLikovi = geometrijskiLikovi;
     }
 
     public void add(GeometrijskiLik lik) {
@@ -23,9 +23,9 @@ public class Ucilica {
 
         for (GeometrijskiLik lik : geometrijskiLikovi) {
             sb.append(lik.getNaziv())
-                    .append(", Površina iznosi: ")
+                    .append("|")
                     .append(df.format(lik.getPovrsina()))
-                    .append(" Opseg iznosi: ")
+                    .append("|")
                     .append(df.format(lik.getOpseg()))
                     .append("\n");
         }
