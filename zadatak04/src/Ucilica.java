@@ -6,8 +6,12 @@ public class Ucilica {
     private final ArrayList<GeometrijskiLik> geometrijskiLikovi;
     DecimalFormat df = new DecimalFormat("#.##");
 
-    public Ucilica(ArrayList<GeometrijskiLik> geometrijskiLikovi) {
-        this.geometrijskiLikovi = geometrijskiLikovi;
+    public Ucilica() {
+        this.geometrijskiLikovi = new ArrayList<>();
+    }
+
+    public ArrayList<GeometrijskiLik> getGeometrijskiLikovi() {
+        return geometrijskiLikovi;
     }
 
     public void add(GeometrijskiLik lik) {
@@ -18,7 +22,7 @@ public class Ucilica {
         Collections.sort(geometrijskiLikovi);
     }
 
-    public String get() {
+    public String write() {
         StringBuilder sb = new StringBuilder();
 
         for (GeometrijskiLik lik : geometrijskiLikovi) {

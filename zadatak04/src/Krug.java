@@ -1,6 +1,10 @@
 public class Krug extends GeometrijskiLik {
     private final double radijus;
 
+    public double getRadijus() {
+        return radijus;
+    }
+
     public Krug(double radijus) {
         this.radijus = radijus;
     }
@@ -18,5 +22,10 @@ public class Krug extends GeometrijskiLik {
     @Override
     public double getOpseg() {
         return 2 * radijus * Math.PI;
+    }
+
+    @Override
+    public String toString() {
+        return this.getNaziv() + "|" + this.getRadijus();
     }
 }

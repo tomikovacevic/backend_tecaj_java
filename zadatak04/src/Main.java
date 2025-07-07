@@ -8,6 +8,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
+            GeometrijskiLikManager.load();
             System.out.println("Unesite geometrijski oblik:");
             String input = scanner.nextLine().toLowerCase();
 
@@ -56,20 +57,14 @@ public class Main {
             String ispis = scanner.nextLine();
 
             if (!ispis.equalsIgnoreCase("n")) {
-                System.out.println(ucilica.get());
+                System.out.println(ucilica.write());
             }
 
             System.out.println("Da li želite nastaviti? (y/n)");
             String nastavak = scanner.nextLine();
 
             if (nastavak.equalsIgnoreCase("n")) {
-                File outputFile = new File("my-file.txt");
-
-                try (PrintWriter printWriter = new PrintWriter(outputFile)) {
-                    printWriter.write(ucilica.get());
-                } catch (Exception e) {
-                    System.out.println("Desio se exception");
-                }
+                GeometrijskiLikManager.save(ucilica.getGeometrijskiLikovi());
 
                 return;
             }

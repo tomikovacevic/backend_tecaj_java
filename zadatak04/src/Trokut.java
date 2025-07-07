@@ -22,4 +22,9 @@ public class Trokut extends GeometrijskiLik {
     public double getOpseg() {
         return a + b + c;
     }
+
+    @Override
+    public String toString() {
+        return this.getNaziv() + "|" + this.a + "|" + this.b + "|" + this.c;
+    }
 }

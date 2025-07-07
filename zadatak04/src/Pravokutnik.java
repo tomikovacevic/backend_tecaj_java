@@ -20,4 +20,9 @@ public class Pravokutnik extends GeometrijskiLik {
     public double getOpseg() {
         return (2 * (a + b));
     }
+
+    @Override
+    public String toString() {
+        return this.getNaziv() + "|" + this.a + "|" + this.b;
+    }
 }
