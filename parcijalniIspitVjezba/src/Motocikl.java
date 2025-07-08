@@ -21,14 +21,16 @@ public class Motocikl extends Vozilo {
 
     @Override
     public String prikaziPodatke() {
-        return "Registarski broj: " +
-                povuciRegistarskiBroj() +
-                ", marka: " +
-                povuciMarku() +
-                ", godina proizvodnje: " +
-                povuciGodinuProizvodnje() +
-                ", tip motora: " +
-                povuciTipMotora() +
-                "\n";
+        StringBuilder sb = new StringBuilder();
+        sb.append("Registarski broj: ")
+                .append(super.registarskiBroj)
+                .append(", marka: ")
+                .append(super.marka)
+                .append(", godina proizvodnje: ")
+                .append(super.godinaProizvodnje)
+                .append(", tip motora: ")
+                .append(tipMotora);
+
+        return sb.toString();
     }
 }

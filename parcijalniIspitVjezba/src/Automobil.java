@@ -1,5 +1,10 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.ArrayList;
+
 public class Automobil extends Vozilo {
     private final byte brojVrata;
+    ArrayList<Vozilo> vozilo = new ArrayList<>();
 
     public Automobil(String registarskiBroj, String marka, short godinaProizvodnje, byte brojVrata) {
         super(registarskiBroj, marka, godinaProizvodnje);
@@ -21,14 +26,29 @@ public class Automobil extends Vozilo {
 
     @Override
     public String prikaziPodatke() {
-        return "Registarski broj: " +
-                povuciRegistarskiBroj() +
-                ", marka: " +
-                povuciMarku() +
-                ", godina proizvodnje: " +
-                povuciGodinuProizvodnje() +
-                ", broj vrata: " +
-                povuciBrojVrata() +
-                "\n";
+        StringBuilder sb = new StringBuilder();
+        //TODO dodati tip vozila
+        sb.append("Registarski broj: ")
+                .append(super.registarskiBroj)
+                .append(", marka: ")
+                .append(super.marka)
+                .append(", godina proizvodnje: ")
+                .append(super.godinaProizvodnje)
+                .append(", tip motora: ")
+                .append(brojVrata);
+
+        return sb.toString();
     }
+
+    //TODO treba primati line koji treba parsirati
+    @Override
+    public String ucitajPodatke() {
+        try (BufferedReader reader = new BufferedReader(new FileReader("vozila.txt"))) {
+            for (Vozilo vozilo: vozila) {
+
+            }
+        }
+    }
+
+
 }

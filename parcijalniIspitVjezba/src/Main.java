@@ -3,11 +3,11 @@ public class Main {
         EvidencijaVozila evidencijaVozila = new EvidencijaVozila();
 
         try {
-            Automobil auto1 = new Automobil("ZG1234AB", "Toyota", (short)2015, (byte)4);
-            Motocikl moto1 = new Motocikl("ZG5678CD", "Yamaha", (short)2018, "Sportski");
+            Automobil automobil1 = new Automobil("ZG1234AB", "Toyota", (short)2015, (byte)4);
+            Motocikl motocikl1 = new Motocikl("ZG5678CD", "Yamaha", (short)2018, "V6");
 
-            evidencijaVozila.dodajVozilo(auto1);
-            evidencijaVozila.dodajVozilo(moto1);
+            evidencijaVozila.dodajVozilo(automobil1);
+            evidencijaVozila.dodajVozilo(motocikl1);
 
             evidencijaVozila.spremiPodatkeUDatoteku("vozila.txt");
 

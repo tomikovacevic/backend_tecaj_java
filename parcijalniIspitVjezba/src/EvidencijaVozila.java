@@ -16,20 +16,24 @@ public class EvidencijaVozila {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(datoteka))) {
             for (Vozilo vozilo : vozila) {
                 if (vozilo instanceof Automobil automobil) {
-                    writer.write("Automobil,"
-                            + automobil.povuciRegistarskiBroj() + ","
-                            + automobil.povuciMarku() + ","
-                            + automobil.povuciGodinuProizvodnje() + ","
+                    writer.write("Automobil|"
+                            + automobil.povuciRegistarskiBroj() + "\\|"
+                            + automobil.povuciMarku() + "\\|"
+                            + automobil.povuciGodinuProizvodnje() + "\\|"
                             + automobil.povuciBrojVrata());
                     writer.newLine();
                 } else if (vozilo instanceof Motocikl motocikl) {
-                    writer.write("Motocikl,"
-                            + motocikl.povuciRegistarskiBroj() + ","
-                            + motocikl.povuciMarku() + ","
-                            + motocikl.povuciGodinuProizvodnje() + ","
+                    writer.write("Motocikl|"
+                            + motocikl.povuciRegistarskiBroj() + "\\|"
+                            + motocikl.povuciMarku() + "\\|"
+                            + motocikl.povuciGodinuProizvodnje() + "\\|"
                             + motocikl.povuciTipMotora());
                     writer.newLine();
                 }
+            }
+
+            for (Vozilo vozilo : vozila) {
+                writer.write(vozilo.prikaziPodatke());
             }
         } catch (IOException ex) {
             System.out.println("Došlo je do iznimke: " + ex.getMessage());
@@ -40,7 +44,7 @@ public class EvidencijaVozila {
         try (BufferedReader reader = new BufferedReader(new FileReader(datoteka))) {
             String redak;
             while((redak = reader.readLine()) != null) {
-                String[] element = redak.split(",");
+                String[] element = redak.split("\\|");
                 String tipVozila = element[0];
                 String registarskiBroj = element[1];
                 String marka = element[2];
