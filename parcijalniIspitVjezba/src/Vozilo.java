@@ -1,9 +1,3 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 public abstract class Vozilo {
     private final String registarskiBroj, marka;
     private final short godinaProizvodnje;
