@@ -1,0 +1,2 @@
+Automobil,ZG1234AB,Toyota,2015,4
+Motocikl,ZG5678CD,Yamaha,2018,Sportski
