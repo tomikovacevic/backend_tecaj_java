@@ -3,6 +3,7 @@ public class Main {
         Osoblje osoblje = new Osoblje();
 
         osoblje.ucitajOsobeIzDatoteke();
-        }
+
+        System.out.println(osoblje.ispisi());
     }
 }

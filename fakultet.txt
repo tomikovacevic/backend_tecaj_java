@@ -1,0 +1,4 @@
+Student|Ana|Anić|204921123
+Student|Marko|Markić|204921123
+Profesor|Ivan|Ivić
+Student|Josip|Josipić|204921123
