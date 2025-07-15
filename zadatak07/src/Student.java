@@ -1,12 +1,13 @@
 public class Student extends Osoba {
-    private String oib;
+    private String brojIndeksa;
 
-    public Student(String ime, String prezime, String oib) {
-        super(Titula.STUDENT, ime, prezime);
+    public Student(String oib, String ime, String prezime, String brojIndeksa) {
+        super(oib, Titula.STUDENT, ime, prezime);
         this.oib = oib;
+        this.brojIndeksa = brojIndeksa;
     }
 
-    public String getOib() {
-        return oib;
+    public String getBrojIndeksa() {
+        return brojIndeksa;
     }
 }

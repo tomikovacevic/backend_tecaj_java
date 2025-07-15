@@ -1,4 +1,10 @@
 public enum Titula {
-    PROFESOR,
-    STUDENT
+    PROFESOR("Profesor"),
+    STUDENT("Student");
+
+    public final String imeTitule;
+
+    Titula(String imeTitule) {
+        this.imeTitule = imeTitule;
+    }
 }

@@ -1,23 +1,21 @@
 public abstract class Osoba {
+    protected String oib;
     protected Titula titula;
     protected String ime;
     protected String prezime;
 
-    public Osoba(Titula titula, String ime, String prezime) {
+    public Osoba(String oib, Titula titula, String ime, String prezime) {
+        this.oib = oib;
         this.titula = titula;
         this.ime = ime;
         this.prezime = prezime;
     }
 
-    public Titula getTitula() {
-        return titula;
-    }
-
-    public String getIme() {
+    protected String povuciIme() {
         return ime;
     }
 
-    public String getPrezime() {
+    protected String povuciPrezime() {
         return prezime;
     }
 }

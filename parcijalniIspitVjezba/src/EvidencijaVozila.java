@@ -15,24 +15,6 @@ public class EvidencijaVozila {
     public void spremiPodatkeUDatoteku(String datoteka) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(datoteka))) {
             for (Vozilo vozilo : vozila) {
-                if (vozilo instanceof Automobil automobil) {
-                    writer.write("Automobil|"
-                            + automobil.povuciRegistarskiBroj() + "\\|"
-                            + automobil.povuciMarku() + "\\|"
-                            + automobil.povuciGodinuProizvodnje() + "\\|"
-                            + automobil.povuciBrojVrata());
-                    writer.newLine();
-                } else if (vozilo instanceof Motocikl motocikl) {
-                    writer.write("Motocikl|"
-                            + motocikl.povuciRegistarskiBroj() + "\\|"
-                            + motocikl.povuciMarku() + "\\|"
-                            + motocikl.povuciGodinuProizvodnje() + "\\|"
-                            + motocikl.povuciTipMotora());
-                    writer.newLine();
-                }
-            }
-
-            for (Vozilo vozilo : vozila) {
                 writer.write(vozilo.prikaziPodatke());
             }
         } catch (IOException ex) {

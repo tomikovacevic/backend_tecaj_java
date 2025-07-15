@@ -14,16 +14,17 @@ public class Osoblje {
         try (BufferedReader reader = new BufferedReader(new FileReader((PUTANJA)))) {
             List<String> redovi = reader.lines().toList();
             for (String redak : redovi) {
-                String[] kolona = redak.split(DELIMITER);
-                String titula = kolona[0];
-                String ime = kolona[1];
-                String prezime = kolona[2];
+                String[] kolone = redak.split(DELIMITER);
+                String oib = kolone[0];
+                String titula = kolone[1];
+                String ime = kolone[2];
+                String prezime = kolone[3];
                 if (titula.equalsIgnoreCase("profesor")) {
-                    Profesor profesor = new Profesor(ime, prezime);
+                    Profesor profesor = new Profesor(oib, ime, prezime);
                     this.osobe.add(profesor);
                 } else if (titula.equalsIgnoreCase("student")) {
-                    String oib = kolona[3];
-                    Student student = new Student(ime, prezime, oib);
+                    String brojIndeksa = kolone[4];
+                    Student student = new Student(oib, ime, prezime, brojIndeksa);
                     this.osobe.add(student);
                 }
             }
@@ -37,37 +38,48 @@ public class Osoblje {
     public String ispisi() {
         int brojProfesora = 0;
         int brojStudenata = 0;
+        //TODO: add sorting using comparable, therefore only 1 StringBuilder will be needed
         StringBuilder sbProfesori = new StringBuilder();
         StringBuilder sbStudenti = new StringBuilder();
         StringBuilder sbIspis = new StringBuilder();
 
         for (Osoba osoba : osobe) {
-            if (osoba instanceof Profesor) {
+            if (osoba instanceof Profesor profesor) {
                 brojProfesora++;
-                sbProfesori.append(osoba.getIme())
+                sbProfesori.append(profesor.povuciIme())
                         .append(" ")
-                        .append(osoba.getPrezime())
-                        .append(" ")
-                        .append("\n");
-            } else if (osoba instanceof Student) {
+                        .append(profesor.povuciPrezime())
+                        .append(System.lineSeparator());
+            } else if (osoba instanceof Student student) {
                 brojStudenata++;
-                sbStudenti.append(osoba.getIme())
+                sbStudenti.append(student.povuciIme())
                         .append(" ")
-                        .append(osoba.getPrezime())
-                        .append("\n");
+                        .append(student.povuciPrezime())
+                        .append(System.lineSeparator());
             }
         }
-        sbIspis.append("Profesori (")
+
+        sbIspis.append(Titula.PROFESOR.imeTitule)
+                .append("i (")
                 .append(brojProfesora)
                 .append("):")
-                .append("\n")
+                .append(System.lineSeparator())
                 .append(sbProfesori)
-                .append("Studenti (")
+                .append(Titula.STUDENT.imeTitule)
+                .append("i (")
                 .append(brojStudenata)
                 .append("):")
-                .append("\n")
+                .append(System.lineSeparator())
                 .append(sbStudenti);
 
         return sbIspis.toString();
+    }
+
+    public void dodajOsobu(Osoba osoba) {
+        osobe.add(osoba);
+    }
+
+    public boolean isOibValid(String oib) {
+
     }
 }
