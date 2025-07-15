@@ -14,14 +14,15 @@ public class Osoblje {
         try (BufferedReader reader = new BufferedReader(new FileReader((PUTANJA)))) {
             List<String> redovi = reader.lines().toList();
             for (String redak : redovi) {
-                String titula = redak.split(DELIMITER)[0];
-                String ime = redak.split(DELIMITER)[1];
-                String prezime = redak.split(DELIMITER)[2];
+                String[] kolona = redak.split(DELIMITER);
+                String titula = kolona[0];
+                String ime = kolona[1];
+                String prezime = kolona[2];
                 if (titula.equalsIgnoreCase("profesor")) {
                     Profesor profesor = new Profesor(ime, prezime);
                     this.osobe.add(profesor);
                 } else if (titula.equalsIgnoreCase("student")) {
-                    String oib = redak.split(DELIMITER)[3];
+                    String oib = kolona[3];
                     Student student = new Student(ime, prezime, oib);
                     this.osobe.add(student);
                 }
