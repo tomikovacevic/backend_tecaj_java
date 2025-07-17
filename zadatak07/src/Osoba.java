@@ -1,8 +1,8 @@
 public abstract class Osoba {
-    protected String oib;
-    protected Titula titula;
-    protected String ime;
-    protected String prezime;
+    private String oib;
+    private Titula titula;
+    private String ime;
+    private String prezime;
 
     public Osoba(String oib, Titula titula, String ime, String prezime) {
         this.oib = oib;
@@ -19,5 +19,10 @@ public abstract class Osoba {
         return prezime;
     }
 
-    protected String povuciOib() { return oib; }
+    protected String povuciOib() {
+        return oib;
+    }
+
+    //TODO: predati delimiter
+    public abstract String spremi();
 }

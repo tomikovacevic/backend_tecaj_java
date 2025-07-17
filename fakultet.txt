@@ -1,4 +1,4 @@
-1234567890|Student|Ana|Anić|204921123
-1234567890|Student|Marko|Markić|204921123
-1234567890|Profesor|Ivan|Ivić
-1234567890|Student|Josip|Josipić|204921123
+132124124|Student|Ana|Anic|2049421123
+112664124|Student|Marko|Markic|2049421323
+591289329|Profesor|Ivan|Ivic
+398483939|Student|Josip|Josipic|2049421423

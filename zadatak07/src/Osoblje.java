@@ -1,7 +1,4 @@
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,9 +6,9 @@ public class Osoblje {
     private final String DELIMITER = "\\|";
     private final String NOVI_RED = System.lineSeparator();
     private ArrayList<Osoba> osobe = new ArrayList<>();
+    private final String PUTANJA = "fakultet.txt";
 
     public void ucitajOsobeIzDatoteke() {
-        String PUTANJA = "fakultet.txt";
         try (BufferedReader reader = new BufferedReader(new FileReader((PUTANJA)))) {
             List<String> redovi = reader.lines().toList();
             for (String redak : redovi) {
@@ -68,7 +65,7 @@ public class Osoblje {
                         .append(", ")
                         .append("broj indeksa: ")
                         .append(student.povuciBrojIndeksa())
-                .append(NOVI_RED);
+                        .append(NOVI_RED);
             }
         }
 
@@ -95,6 +92,16 @@ public class Osoblje {
             if (osoba.povuciOib().equals(oib)) {
                 throw new InvalidOibException();
             }
+        }
+    }
+
+    public void spremiUDatoteku() {
+        try (PrintWriter printWriter = new PrintWriter(PUTANJA)) {
+            for (Osoba osoba : this.osobe) {
+                printWriter.println(osoba);
+            }
+        } catch (FileNotFoundException ex) {
+            System.out.println("Datoteka nije pronađena: " + ex.getMessage());
         }
     }
 }
