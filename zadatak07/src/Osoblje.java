@@ -6,11 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Osoblje {
-    private final String PUTANJA = "fakultet.txt";
     private final String DELIMITER = "\\|";
+    private final String NOVI_RED = System.lineSeparator();
     private ArrayList<Osoba> osobe = new ArrayList<>();
 
     public void ucitajOsobeIzDatoteke() {
+        String PUTANJA = "fakultet.txt";
         try (BufferedReader reader = new BufferedReader(new FileReader((PUTANJA)))) {
             List<String> redovi = reader.lines().toList();
             for (String redak : redovi) {
@@ -19,10 +20,11 @@ public class Osoblje {
                 String titula = kolone[1];
                 String ime = kolone[2];
                 String prezime = kolone[3];
-                if (titula.equalsIgnoreCase("profesor")) {
+                Titula imeTitule = Titula.izNaziva(titula);
+                if (imeTitule.equals(Titula.PROFESOR)) {
                     Profesor profesor = new Profesor(oib, ime, prezime);
                     this.osobe.add(profesor);
-                } else if (titula.equalsIgnoreCase("student")) {
+                } else if (imeTitule.equals(Titula.STUDENT)) {
                     String brojIndeksa = kolone[4];
                     Student student = new Student(oib, ime, prezime, brojIndeksa);
                     this.osobe.add(student);
@@ -46,30 +48,39 @@ public class Osoblje {
         for (Osoba osoba : osobe) {
             if (osoba instanceof Profesor profesor) {
                 brojProfesora++;
-                sbProfesori.append(profesor.povuciIme())
+                sbProfesori.append("OIB: ")
+                        .append(profesor.povuciOib())
+                        .append(", ")
+                        .append(("ime i prezime: "))
+                        .append(profesor.povuciIme())
                         .append(" ")
                         .append(profesor.povuciPrezime())
-                        .append(System.lineSeparator());
+                        .append(NOVI_RED);
             } else if (osoba instanceof Student student) {
                 brojStudenata++;
-                sbStudenti.append(student.povuciIme())
+                sbStudenti.append("OIB: ")
+                        .append(student.povuciOib())
+                        .append(", ")
+                        .append(("ime i prezime: "))
+                        .append(student.povuciIme())
                         .append(" ")
                         .append(student.povuciPrezime())
-                        .append(System.lineSeparator());
+                        .append(", ")
+                        .append("broj indeksa: ")
+                        .append(student.povuciBrojIndeksa())
+                .append(NOVI_RED);
             }
         }
 
-        sbIspis.append(Titula.PROFESOR.imeTitule)
-                .append("i (")
+        sbIspis.append("Profesori (")
                 .append(brojProfesora)
                 .append("):")
-                .append(System.lineSeparator())
+                .append(NOVI_RED)
                 .append(sbProfesori)
-                .append(Titula.STUDENT.imeTitule)
-                .append("i (")
+                .append("Studenti (")
                 .append(brojStudenata)
                 .append("):")
-                .append(System.lineSeparator())
+                .append(NOVI_RED)
                 .append(sbStudenti);
 
         return sbIspis.toString();
@@ -79,7 +90,11 @@ public class Osoblje {
         osobe.add(osoba);
     }
 
-    public boolean isOibValid(String oib) {
-
+    public void provjeriOib(String oib) throws InvalidOibException {
+        for (Osoba osoba : osobe) {
+            if (osoba.povuciOib().equals(oib)) {
+                throw new InvalidOibException();
+            }
+        }
     }
 }

@@ -3,11 +3,10 @@ public class Student extends Osoba {
 
     public Student(String oib, String ime, String prezime, String brojIndeksa) {
         super(oib, Titula.STUDENT, ime, prezime);
-        this.oib = oib;
         this.brojIndeksa = brojIndeksa;
     }
 
-    public String getBrojIndeksa() {
+    public String povuciBrojIndeksa() {
         return brojIndeksa;
     }
 }

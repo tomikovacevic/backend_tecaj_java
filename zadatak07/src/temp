@@ -1,18 +1,18 @@
 /*TODO
-        1. Dodat field oib na sve objekte u kodu
-       2. Omogucit dodavanje novih profesora / studenata
+        1. Dodati field oib na sve objekte u kodu
+       2. Omogućiti dodavanje novih profesora / studenata
        3 ako user unese postojeci oib bacit exception 8:02 PM
 
-       *Lecturer: Matija Sabljić: 1. Unos profesora
-       2. Unos studenta
+       *Lecturer: Matija : 1. Unos profesora
+       2. Unos students
        3. Filtriranje
        4. Ispis
 
        Odaberite opciju ispred željene akcije. 8:08 PM
-       Antonio Šušovček: 1. Dodat field oib na sve objekte u kodu
+       Antonio : 1. Dodati field oib na sve objekte u kodu
        	- String oib u Osoba
-       2. Omogucit dodavanje novih profesora / studenata
-       	- napraviti korisničko sučelje u Mainu
+       2. Omogućiti dodavanje novih profesora / studenata
+       	- napraviti korisničko sučelje u Main
        	-  1. Unos profesora
        	2. Unos studenta
        3. Filtriranje

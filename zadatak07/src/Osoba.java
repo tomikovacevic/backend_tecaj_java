@@ -18,4 +18,6 @@ public abstract class Osoba {
     protected String povuciPrezime() {
         return prezime;
     }
+
+    protected String povuciOib() { return oib; }
 }
