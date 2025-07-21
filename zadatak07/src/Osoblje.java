@@ -3,25 +3,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Osoblje {
-    private final String DELIMITER = "\\|";
     private final String NOVI_RED = System.lineSeparator();
-    private ArrayList<Osoba> osobe = new ArrayList<>();
+    private final String DELIMITER_ZA_UCITAVANJE = "\\|";
+    private final String DELIMITER_ZA_SPREMANJE = "|";
     private final String PUTANJA = "fakultet.txt";
+    private final ArrayList<Osoba> osobe = new ArrayList<>();
 
     public void ucitajOsobeIzDatoteke() {
         try (BufferedReader reader = new BufferedReader(new FileReader((PUTANJA)))) {
             List<String> redovi = reader.lines().toList();
             for (String redak : redovi) {
-                String[] kolone = redak.split(DELIMITER);
+                String[] kolone = redak.split(DELIMITER_ZA_UCITAVANJE);
                 String oib = kolone[0];
                 String titula = kolone[1];
                 String ime = kolone[2];
                 String prezime = kolone[3];
-                Titula imeTitule = Titula.izNaziva(titula);
-                if (imeTitule.equals(Titula.PROFESOR)) {
+                Titula nazivTitule = Titula.izNaziva(titula);
+                if (nazivTitule.equals(Titula.PROFESOR)) {
                     Profesor profesor = new Profesor(oib, ime, prezime);
                     this.osobe.add(profesor);
-                } else if (imeTitule.equals(Titula.STUDENT)) {
+                } else if (nazivTitule.equals(Titula.STUDENT)) {
                     String brojIndeksa = kolone[4];
                     Student student = new Student(oib, ime, prezime, brojIndeksa);
                     this.osobe.add(student);
@@ -96,12 +97,42 @@ public class Osoblje {
     }
 
     public void spremiUDatoteku() {
-        try (PrintWriter printWriter = new PrintWriter(PUTANJA)) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(PUTANJA))) {
             for (Osoba osoba : this.osobe) {
-                printWriter.println(osoba);
+                writer.write(osoba.spremi(DELIMITER_ZA_SPREMANJE, NOVI_RED));
             }
-        } catch (FileNotFoundException ex) {
-            System.out.println("Datoteka nije pronađena: " + ex.getMessage());
+        } catch (IOException ex) {
+            System.out.println("Došlo je do iznimke: " + ex.getMessage());
         }
+    }
+
+    public String filtrirajPoImenu(String ime) {
+        StringBuilder sbIme = new StringBuilder();
+        for (Osoba osoba : this.osobe) {
+            if (osoba.povuciIme().toLowerCase().contains(ime.toLowerCase())) {
+                sbIme.append(osoba.titula.povuciImeTitule())
+                        .append(DELIMITER_ZA_SPREMANJE)
+                        .append(osoba.povuciIme())
+                        .append(DELIMITER_ZA_SPREMANJE)
+                        .append(osoba.povuciPrezime())
+                        .append(NOVI_RED);
+            }
+        }
+        return sbIme.toString();
+    }
+
+    public String filtrirajPoPrezimenu(String prezime) {
+        StringBuilder sbPrezime = new StringBuilder();
+        for (Osoba osoba : this.osobe) {
+            if (osoba.povuciIme().toLowerCase().contains(prezime.toLowerCase())) {
+                sbPrezime.append(osoba.titula.povuciImeTitule())
+                        .append(DELIMITER_ZA_SPREMANJE)
+                        .append(osoba.povuciIme())
+                        .append(DELIMITER_ZA_SPREMANJE)
+                        .append(osoba.povuciPrezime())
+                        .append(NOVI_RED);
+            }
+        }
+        return sbPrezime.toString();
     }
 }

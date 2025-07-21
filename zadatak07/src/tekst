@@ -1,3 +1,0 @@
-while izbor < 1 && izbor > 4 input 3 (false, false) => false, petlja se ne izvršava
-while izbor > 1 && izbor < 4 input 3 (true, true) => true
-while izbor < 1 || izbor > 4 input 3 (false, false) => false

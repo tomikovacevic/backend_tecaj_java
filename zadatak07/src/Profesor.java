@@ -4,11 +4,16 @@ public class Profesor extends Osoba {
     }
 
     @Override
-    public String spremi() {
+    public String spremi(String delimiter, String noviRed) {
         StringBuilder sb = new StringBuilder();
-        sb.append()
-                .append("\\|")
-                .append(this.titula)
-                .append()
+        sb.append(super.oib)
+                .append(delimiter)
+                .append(super.titula.povuciImeTitule())
+                .append(delimiter)
+                .append(super.ime)
+                .append(delimiter)
+                .append(super.prezime)
+                .append(noviRed);
+        return sb.toString();
     }
 }

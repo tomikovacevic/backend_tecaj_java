@@ -2,3 +2,6 @@
 112664124|Student|Marko|Markic|2049421323
 591289329|Profesor|Ivan|Ivic
 398483939|Student|Josip|Josipic|2049421423
+566546|Profesor|6546541|64164
+123123123|Profesor|Ivo|Ivić
+124124124124|Student|Mario|Marić|1251251255512

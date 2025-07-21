@@ -14,9 +14,11 @@
        2. Omogućiti dodavanje novih profesora / studenata
        	- napraviti korisničko sučelje u Main
        	-  1. Unos profesora
-       	2. Unos studenta
+       	- 2. Unos studenta
        3. Filtriranje
+        - submenu -> ime, prezime
        4. Ispis
+       5. Izlaz
 
 
        Odaberite opciju ispred željene akcije.
@@ -26,3 +28,4 @@
        -String prezime = scanner.nextLine();
        3 ako user unese postojeci oib bacit exception
       */
+
