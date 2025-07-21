@@ -109,7 +109,7 @@ public class Osoblje {
     public String filtrirajPoImenu(String ime) {
         StringBuilder sbIme = new StringBuilder();
         for (Osoba osoba : this.osobe) {
-            if (osoba.povuciIme().toLowerCase().contains(ime.toLowerCase())) {
+            if (osoba.povuciIme().toLowerCase().startsWith(ime.toLowerCase())) {
                 sbIme.append(osoba.titula.povuciImeTitule())
                         .append(DELIMITER_ZA_SPREMANJE)
                         .append(osoba.povuciIme())
@@ -124,7 +124,7 @@ public class Osoblje {
     public String filtrirajPoPrezimenu(String prezime) {
         StringBuilder sbPrezime = new StringBuilder();
         for (Osoba osoba : this.osobe) {
-            if (osoba.povuciIme().toLowerCase().contains(prezime.toLowerCase())) {
+            if (osoba.povuciIme().toLowerCase().startsWith(prezime.toLowerCase())) {
                 sbPrezime.append(osoba.titula.povuciImeTitule())
                         .append(DELIMITER_ZA_SPREMANJE)
                         .append(osoba.povuciIme())

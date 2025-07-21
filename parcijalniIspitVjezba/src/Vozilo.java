@@ -1,9 +1,7 @@
-import java.util.ArrayList;
-
 public abstract class Vozilo {
     protected String registarskiBroj;
-    protected final String marka;
-    protected final short godinaProizvodnje;
+    protected String marka;
+    protected short godinaProizvodnje;
 
     public Vozilo(String registarskiBroj, String marka, short godinaProizvodnje) {
         try {
@@ -32,8 +30,6 @@ public abstract class Vozilo {
     public short povuciGodinuProizvodnje() {
         return godinaProizvodnje;
     }
-
-    public abstract String ucitajPodatke();
 
     public abstract String prikaziPodatke();
 }

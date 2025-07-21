@@ -1,5 +1,8 @@
+import java.util.ArrayList;
+
 public class Motocikl extends Vozilo {
-    private final String tipMotora;
+    private String tipMotora;
+    ArrayList<Vozilo> vozila = new ArrayList<>();
 
     public Motocikl(String registarskiBroj, String marka, short godinaProizvodnje, String tipMotora) {
         super(registarskiBroj, marka, godinaProizvodnje);

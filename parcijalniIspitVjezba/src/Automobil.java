@@ -1,10 +1,8 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.util.ArrayList;
 
 public class Automobil extends Vozilo {
-    private final byte brojVrata;
-    ArrayList<Vozilo> vozilo = new ArrayList<>();
+    private byte brojVrata;
+    ArrayList<Vozilo> vozila = new ArrayList<>();
 
     public Automobil(String registarskiBroj, String marka, short godinaProizvodnje, byte brojVrata) {
         super(registarskiBroj, marka, godinaProizvodnje);
@@ -39,16 +37,4 @@ public class Automobil extends Vozilo {
 
         return sb.toString();
     }
-
-    //TODO treba primati line koji treba parsirati
-    @Override
-    public String ucitajPodatke() {
-        try (BufferedReader reader = new BufferedReader(new FileReader("vozila.txt"))) {
-            for (Vozilo vozilo: vozila) {
-
-            }
-        }
-    }
-
-
 }
