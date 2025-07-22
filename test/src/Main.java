@@ -22,16 +22,18 @@ public class Main {
                 System.out.println("Insert a number:");
                 input = sc.nextInt();
                 if (input == 18) {
-                    return;
+                    return;  // stops the method
                 }
                 if (input == 13) {
-                    break;
+                    break; // doesn't go further, stops the inner loop and goes back to the main loop
                 }
 
                 if (input == 15) {
-                    continue;
+                    continue; // doesn't go further, checks the condition of the while in the do while loop and if it fails it goes back to the main loop
                 }
 
+                // prints only if none of the if conditions were met
+                // prints only once if the condition of the while in the do while loop wasn't met, otherwise prints every time the condition is met
                 System.out.println("Text within the inner loop.");
             } while (input == 5);
             System.out.println("End of the inner loop.");
@@ -52,7 +54,7 @@ public class Main {
                 System.out.println("Insert a number:");
                 input = sc.nextInt();
                 if (input == 18) {
-                    return "Stopping the method from within the nested loop.";
+                    return "Stopping the method from within the nested loop."; // stops the method and returns a value
                 }
                 if (input == 13) {
                     break;
