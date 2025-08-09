@@ -1,0 +1,36 @@
+Some examples
+
+List - Cleaning
+--Task
+    - sink
+    - trash
+    - bed
+
+List - Website
+--Task
+    - homepage
+    - about
+    - contact
+
+----------------------------------------------------------------------------------
+Things that should be done:
+If only one list/task exists then don't display the option to search?
+Option to archive/delete task/list after finished (needs confirmation when option is chosen)
+Reminders (Don't display if none exist)
+Device edited from
+Auto sorting
+Manual sorting
+ - by date and or month and or year
+Priority coloring
+Auto renew list/task (set occurrence)
+Command button (ex. move to different list)
+List description
+History
+Undo from history
+Undo from archive
+Set a random task from any list as a highest priority (color it red/custom color), shown in a separate option
+Trim text on save
+Time and date of list and task creation, and time passed since it's creation
+Searchable list/task
+Recognize already inserted list/task
+Grammar check
