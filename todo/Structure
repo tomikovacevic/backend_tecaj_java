@@ -20,8 +20,10 @@ Reminders (Don't display if none exist)
 Device edited from
 Auto sorting
 Manual sorting
- - by date and or month and or year
-Priority coloring
+ - by date and or month and or year of creation/priority
+ - alphabetical
+ - priority
+Priority/task/list coloring
 Auto renew list/task (set occurrence)
 Command button (ex. move to different list)
 List description
@@ -31,6 +33,6 @@ Undo from archive
 Set a random task from any list as a highest priority (color it red/custom color), shown in a separate option
 Trim text on save
 Time and date of list and task creation, and time passed since it's creation
-Searchable list/task
+Searchable list/task - offer CRUD, search for another or back to main menu
 Recognize already inserted list/task
 Grammar check
