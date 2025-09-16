@@ -4,21 +4,33 @@ import java.util.Set;
 
 public class EvidencijaPolaznika {
     private Map<String, Polaznik> polaznici;
+
     public EvidencijaPolaznika() {
         this.polaznici = new HashMap<>();
     }
 
     public boolean dodajPolaznika(String imePolaznika, String prezimePolaznika, String emailPolaznika) {
-        Polaznik p = new Polaznik(imePolaznika, prezimePolaznika, emailPolaznika);
-        return this.polaznici.put(emailPolaznika, p);
+//        if(this.polaznici.containsKey(emailPolaznika)) {
+//            return false;
+//        } else {
+//            Polaznik p = new Polaznik(imePolaznika, prezimePolaznika, emailPolaznika);
+//            this.polaznici.put(emailPolaznika, p);
+//            return true;
+//        }
+        if (!this.polaznici.containsKey(emailPolaznika)) {
+            Polaznik p = new Polaznik(imePolaznika, prezimePolaznika, emailPolaznika);
+            this.polaznici.put(emailPolaznika, p);
+            return true;
+        }
+        return false;
     }
 
     public String ispisPolaznika() {
         StringBuilder sb = new StringBuilder();
 
-        for (String s : polaznici.keySet()) {
+        for (Polaznik polaznik : polaznici.values()) {
             sb.append("Ime: ")
-                    .append(s.getIme())
+                    .append(polaznik.getIme())
                     .append(", prezime: ")
                     .append(polaznik.getPrezime())
                     .append(", email: ")
@@ -30,7 +42,9 @@ public class EvidencijaPolaznika {
     }
 
     public String pretraga(String email) {
-        for (Polaznik polaznik : polaznici.keySet()) {
+        if(polaznici.get())
+        polaznici.get(email);
+        for (Polaznik polaznik : polaznici.values()) {
             if (polaznik.getEmail().equalsIgnoreCase(email)) {
                 //noinspection StringBufferReplaceableByString
                 StringBuilder sbPodaci = new StringBuilder();

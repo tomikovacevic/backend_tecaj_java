@@ -33,7 +33,7 @@ public class Main {
         String prezime = sc.nextLine();
         System.out.println("Unesite e-mail polaznika:");
         String email = sc.nextLine();
-        if(evidencijaPolaznika.dodajPolaznika(ime, prezime, email)) {
+        if (evidencijaPolaznika.dodajPolaznika(ime, prezime, email)) {
             System.out.println("Uspješan unos!");
         } else {
             System.out.println("Polaznik već postoji!");
@@ -49,7 +49,13 @@ public class Main {
                 .append(System.lineSeparator())
                 .append("3. Pretraživanje")
                 .append(System.lineSeparator())
-                .append("4. Izlaz");
+                .append("4. Nasumičan ispis")
+                .append(System.lineSeparator())
+                .append("5. Obrnut ispis")
+                .append(System.lineSeparator())
+                .append("6. Pronađi po imenu")
+                .append(System.lineSeparator())
+                .append("7. Izlaz");
         return sbMeni.toString();
     }
 }
