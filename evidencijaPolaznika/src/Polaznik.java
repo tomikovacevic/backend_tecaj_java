@@ -1,3 +1,4 @@
+//public class Polaznik implements Comparable<Polaznik> {
 public class Polaznik {
     private String ime, prezime, email;
 
@@ -18,16 +19,14 @@ public class Polaznik {
     public String getEmail() {
         return email;
     }
-    
-    public void setPrezime(String prezime) {
-        this.prezime = prezime;
-    }
-    
-    public void setIme(String ime) {
-        this.ime = ime;
-    }
-    
-    public void setEmail(String email) {
-        this.email = email;
-    }
+
+//    @Override
+//    public int compareTo(Polaznik other) {
+//        if(this.email.compareToIgnoreCase(other.email) == 0) {
+//            return 0;
+//        }
+//        int manjeIliJednako = this.prezime.compareToIgnoreCase(other.prezime);
+//        System.out.println("Uspoređujem" + this.prezime + " s " + other.prezime + " i dobivam: " + manjeIliJednako);
+//        return manjeIliJednako;
+//    }
 }

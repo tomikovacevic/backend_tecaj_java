@@ -1,23 +1,24 @@
-import java.util.HashSet;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
-import java.util.TreeSet;
 
 public class EvidencijaPolaznika {
-    private Set<Polaznik> polaznici;
+    private Map<String, Polaznik> polaznici;
     public EvidencijaPolaznika() {
-        this.polaznici = new TreeSet<>(new ImeKomparator());
+        this.polaznici = new HashMap<>();
     }
 
     public boolean dodajPolaznika(String imePolaznika, String prezimePolaznika, String emailPolaznika) {
-        return this.polaznici.add(new Polaznik(imePolaznika, prezimePolaznika, emailPolaznika));
+        Polaznik p = new Polaznik(imePolaznika, prezimePolaznika, emailPolaznika);
+        return this.polaznici.put(emailPolaznika, p);
     }
 
     public String ispisPolaznika() {
         StringBuilder sb = new StringBuilder();
 
-        for (Polaznik polaznik : polaznici) {
+        for (String s : polaznici.keySet()) {
             sb.append("Ime: ")
-                    .append(polaznik.getIme())
+                    .append(s.getIme())
                     .append(", prezime: ")
                     .append(polaznik.getPrezime())
                     .append(", email: ")
@@ -29,7 +30,7 @@ public class EvidencijaPolaznika {
     }
 
     public String pretraga(String email) {
-        for (Polaznik polaznik : polaznici) {
+        for (Polaznik polaznik : polaznici.keySet()) {
             if (polaznik.getEmail().equalsIgnoreCase(email)) {
                 //noinspection StringBufferReplaceableByString
                 StringBuilder sbPodaci = new StringBuilder();
