@@ -42,22 +42,7 @@ public class EvidencijaPolaznika {
     }
 
     public String pretraga(String email) {
-        if(polaznici.get())
-        polaznici.get(email);
-        for (Polaznik polaznik : polaznici.values()) {
-            if (polaznik.getEmail().equalsIgnoreCase(email)) {
-                //noinspection StringBufferReplaceableByString
-                StringBuilder sbPodaci = new StringBuilder();
-                sbPodaci.append("Ime: ")
-                        .append(polaznik.getIme())
-                        .append(", prezime: ")
-                        .append(polaznik.getPrezime())
-                        .append(", email: ")
-                        .append(polaznik.getEmail())
-                        .append(System.lineSeparator());
-                return sbPodaci.toString();
-            }
-        }
-        return "Polaznik sa navedenim mail-om ne postoji";
+        Polaznik p = polaznici.get(email);
+        return p.toString();
     }
 }
