@@ -1,7 +1,11 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        System.out.println("Drzava MANAGER");
+        DrzavaRepository drzavaRepository = new DrzavaRepository();
+
         Scanner sc = new Scanner(System.in);
         int unos;
         do {
@@ -11,50 +15,71 @@ public class Main {
             sc.nextLine();
             switch (unos) {
                 case 1:
-                    unosPolaznika(sc, evidencijaPolaznika);
+                    System.out.println("Unesite državu:");
+                    String newDrzava = sc.nextLine();
+                    drzavaRepository.add(newDrzava);
                     break;
                 case 2:
-                    System.out.println(evidencijaPolaznika.ispisPolaznika());
+                    System.out.println("Unesite ID drzave koji je veći od 3 koju želite izmijeniti:");
+                    int IDDrzava = sc.nextInt();
+                    sc.nextLine();
+                    System.out.println("Unesite novi naziv drzave:");
+                    String noviNaziv = sc.nextLine();
+                    Boolean rezultat = drzavaRepository.izmjenaDrzave(IDDrzava, noviNaziv);
+
+                    if(rezultat == null) {
+                        System.out.println("Unijeli ste vrijednost koja je manje ili jednaka 3");
+                    } else {
+                        if (rezultat.booleanValue()) {
+                            System.out.println("Uspješno ste izmjenili državu.");
+                        } else {
+                            System.out.println("Niste uspijeli izmjeniti državu.");
+                        }
+                    }
+
                     break;
                 case 3:
-                    System.out.println("Unesite email polaznika");
-                    String emailPolaznika = sc.nextLine();
-                    System.out.println(evidencijaPolaznika.pretraga(emailPolaznika));
+                    System.out.println("Unesite ID drzave koju želite izbrisati:");
+                    int IDDrzavaBrisanje = sc.nextInt();
+                    sc.nextLine();
+//                    drzavaRepository.brisanjeDrzave(IDDrzavaBrisanje)
+                    Boolean rezultatBrisanje = drzavaRepository.brisanjeDrzave(IDDrzavaBrisanje);
+
+                    if(rezultatBrisanje == null) {
+                        System.out.println("Unijeli ste vrijednost koja je manje ili jednaka 3");
+                    } else {
+                        if (rezultatBrisanje.booleanValue()) {
+                            System.out.println("Uspješno ste izbrisali državu.");
+                        } else {
+                            System.out.println("Niste uspijeli izbrisati državu.");
+                        }
+                    }
+
+
+                    break;
+                case 4:
+                    ArrayList<Drzava> rezultatDrzave = drzavaRepository.dohvatiDrzave();
+                    for (Drzava drzava : rezultatDrzave) {
+                        System.out.println(drzava);
+                    }
+
                     break;
             }
-        } while (unos != 4);
-    }
-
-    private static void unosPolaznika(Scanner sc, EvidencijaPolaznika evidencijaPolaznika) {
-        System.out.println("Unesite ime polaznika:");
-        String ime = sc.nextLine();
-        System.out.println("Unesite prezime polaznika:");
-        String prezime = sc.nextLine();
-        System.out.println("Unesite e-mail polaznika:");
-        String email = sc.nextLine();
-        if (evidencijaPolaznika.dodajPolaznika(ime, prezime, email)) {
-            System.out.println("Uspješan unos!");
-        } else {
-            System.out.println("Polaznik već postoji!");
-        }
+        } while (unos != 5);
     }
 
     private static String printMeni() {
         //noinspection StringBufferReplaceableByString
         StringBuilder sbMeni = new StringBuilder();
-        sbMeni.append("1. Unos")
+        sbMeni.append("1. Unos države")
                 .append(System.lineSeparator())
-                .append("2. Ispis")
+                .append("2. Izmjena države")
                 .append(System.lineSeparator())
-                .append("3. Pretraživanje")
+                .append("3. Brisanje države")
                 .append(System.lineSeparator())
-                .append("4. Nasumičan ispis")
+                .append("4. Prikaz svih država")
                 .append(System.lineSeparator())
-                .append("5. Obrnut ispis")
-                .append(System.lineSeparator())
-                .append("6. Pronađi po imenu")
-                .append(System.lineSeparator())
-                .append("7. Izlaz");
+                .append("5. Izlaz");
         return sbMeni.toString();
     }
 }
