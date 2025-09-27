@@ -1,10 +1,7 @@
 import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class DrzavaRepository {
@@ -76,9 +73,9 @@ public class DrzavaRepository {
         ArrayList<Drzava> drzave = new ArrayList<>();
 
         DataSource datasource = createDataSource();
-        String query = "select IDDrzava, Naziv from dbo.Drzava";
+        String query = "insert into dbo.Drzava (Naziv) VALUES(?), (?), (?)";
         try (Connection connection = datasource.getConnection();
-             Statement statement = connection.createStatement()) {
+             PreparedStatement statement = connection.prepareStatement(query)) {
 
             ResultSet resultSet = statement.executeQuery(query);
 
@@ -93,6 +90,59 @@ public class DrzavaRepository {
         }
 
         return drzave;
+    }
+
+    //usporediti sa kodom sa screenshot-a
+    public boolean dodavanjeDrzava(ArrayList<String> naziviDrzava) {
+        if(naziviDrzava == null || naziviDrzava.isEmpty()) {
+            return false;
+        }
+
+        DataSource datasource = createDataSource();
+
+        StringBuilder query = new StringBuilder("insert into dbo.Drzava (Naziv) VALUES (?)");
+        for (String naziv : naziviDrzava) {
+            query.append("(?), ");
+        }
+
+        query.deleteCharAt(query.lastIndexOf(", "));
+
+        try (Connection connection = datasource.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query.toString())) {
+
+            for(int i = 1; i < naziviDrzava.size(); i++) {
+                statement.setString(i, naziviDrzava.get(i));
+            }
+            int rowsAffected = statement.executeUpdate();
+
+            if(rowsAffected == naziviDrzava.size()) {
+                return true;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    public int obrisDrzavePrekoIdja(int id) {
+        if (id <= 4) {
+            return 0;
+        }
+
+        DataSource dataSource = createDataSource();
+        String query = "{CALL dbo.ObrisiDrzaveIznad (?)}";
+        try (Connection connection = dataSource.getConnection();
+             CallableStatement cs = connection.prepareCall(query)) {
+                 cs.setInt("id", id);
+                 int rowsAffected = cs.executeUpdate();
+                 return rowsAffected;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return -1;
     }
 
     private static DataSource createDataSource() {

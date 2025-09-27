@@ -62,10 +62,23 @@ public class Main {
                     for (Drzava drzava : rezultatDrzave) {
                         System.out.println(drzava);
                     }
-
+                    break;
+                case 5:
+                    ArrayList<String> dodaneDrzave = new ArrayList<>();
+                    dodaneDrzave.add("a");
+                    dodaneDrzave.add("b");
+                    dodaneDrzave.add("c");
+                    dodaneDrzave.add("d");
+                    dodaneDrzave.add("e");
+                    dodaneDrzave.add("f");
+                    dodaneDrzave.add("g");
+                    dodaneDrzave.add("h");
+                    dodaneDrzave.add("i");
+                    dodaneDrzave.add("j");
+                    drzavaRepository.dodavanjeDrzava(dodaneDrzave);
                     break;
             }
-        } while (unos != 5);
+        } while (unos != 6);
     }
 
     private static String printMeni() {
@@ -79,7 +92,9 @@ public class Main {
                 .append(System.lineSeparator())
                 .append("4. Prikaz svih država")
                 .append(System.lineSeparator())
-                .append("5. Izlaz");
+                .append("5. Dodavanje država")
+                .append(System.lineSeparator())
+                .append("6. Izlaz");
         return sbMeni.toString();
     }
 }
